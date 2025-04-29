@@ -43,6 +43,7 @@ Assuming you already have a working Linux terminal (Windows systems) or ... (App
 
 You can instal these using the following command on your terminal:
 - pip install python3-xyz
+
 Where 'xyz' will be the name of the packaged you mean to install. 
 
 ### Data Exploration
