@@ -47,14 +47,47 @@ Where 'xyz' will be the name of the packaged you mean to install.
 
 ### Data Exploration
 
-Once you've downloaded the data set from Kaggle, uploaded it to Jupyter Notebook, and downloaded the required packages for the code, you explore. 
-Upon first looks, the data set is 2240 rows (entries) by 29 columns (features) with only missing values in the 'Income' column.
-
+Once you've downloaded the data set from Kaggle, uploaded it to Jupyter Notebook, and downloaded the required packages for the code, explore. 
+Upon first looks, the data set is 2240 rows (entries) by 29 columns (features) with only missing values in the 'Income' column. All columns are numeric except 'Education' and 'Marital_Status' which are categorical, also 'Dt_Customer' which should be data-time. Also, 'Z_CostContact' and 'Z_Revenue' are constants. There are many outlier values in the data set but the only notable outliers are in the 'Year_Birth' column.
+The target column, 'Response', is already encoded 'True' and 'False' to '1' and '0'. However, the target has an imbalance of 0's and 1's. The class imbalance is visualized below.
 
 ### Basic Data Visuals
-
+Bar chart of class imbalance in 'Response' column.
+![image](https://github.com/user-attachments/assets/4af91947-8ae9-4ef3-a0f2-6b7a129c4261)
 
 ### How it Works
 
+The data set is cleaned and preprocessed before the model could be trained.
+
+**Data Cleaning:**
+- Missing values in 'Income' column were imputed with zero.
+- Outlier values in 'Year_Birth' were imputed with '1925'.
+- Later on: Infinite values were imputed with zero.
+
+**Data Standardization, Feature Engineering, and Encoding:**
+- All numeric columns were standardized using scikit-learn's standard scalar.
+- 'Marital_Status' categories which valued less than 1% of the data were consolidated into 1 category.
+- From 'Year_Birth' the customer age was extracted, placed into a new column 'Age' then seperated customers into different age groups.
+- From 'Dt_Costumer' the customer subscription length was extracted into 'Customer_Years' column.
+- 'MntWines','MntFruits','MntMeatProducts','MntFishProducts','MntSweetProducts', and 'MntGoldProducts' were summed and extracted to 'TotalSpend' column.
+- From 'TotalSpend' and 'Income' their ratio was extracted to 'SpendToIncomeRatio' column.
+- 'Education' and 'Marital_Status' were one-hot encoded.
+- Ratios of other highly correlated features were extracted into new columns.
+
+**Model Training & Selection:**
+- The data set was split into training and testing subsets. The columns 'ID', 'Education', 'Marital_Status', 'Dt_Customer', 'Z_CostContact', 'Z_Revenue', and 'Response' were dropped from the features set before training and testing begun. 'Response' column was stored in the seperate variable.
+- After data was split into training and testing subsets, Synthetic Minority Oversampling Technique (SMOTE) was applied to correct the class imbalance in the target column.
+- Logistic Regression, Random Forest, SVM, and KNN were the selected models. Accuracy, Precision, Recall, F1-Score, were the selected metrics. 
+- After running the models, the metrics returned that the Random Forest model showed the best performance on all metrics.
+- The ROC Curve of the Random Forest Model returned an AUC of 0.87, which is less than before the data set handling but since all other metrics improved, we will accept this.
+
+![image](https://github.com/user-attachments/assets/2d221298-a027-4e17-a9ae-fef0a6ce46f3)
+
 
 ### Future Goals
+
+In the future for this project, I intend to:
+- Further improve the metrics of the Random Forest model.
+- Correct the class imbalance using other oversampling techniques (Adasin, for example).
+- Use more complex models and measure their performance to Random Forest.
+
