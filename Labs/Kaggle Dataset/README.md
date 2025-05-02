@@ -1,3 +1,5 @@
+ ![](UTA-DataScience-Logo.png)
+
 # Marketing Campaign Data Set - Binary Classification
 ## Objective was to create a binary classification *response model which can provide a significant boost to the efficiency of a marketing campaign by increasing responses or reducing expenses.*
 
