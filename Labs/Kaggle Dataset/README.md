@@ -59,12 +59,14 @@ There are many outlier values in the data set but the only notable outliers are 
 The target column, 'Response', is already encoded 'True' and 'False' to '1' and '0'. However, the target has an imbalance of 0's and 1's. The class imbalance is visualized below.
 
 ### Basic Data Visuals
-Bar chart of class imbalance in 'Response' column:
-![image](https://github.com/user-attachments/assets/4af91947-8ae9-4ef3-a0f2-6b7a129c4261)
+Bar charts of initial features:
+![image](https://github.com/user-attachments/assets/979223fb-a878-4ec9-bbe9-b850b56dadba)
 
 Correlation Heatmap of initial features:
 ![image](https://github.com/user-attachments/assets/fc842a5d-d403-4683-aec2-0ffa6b7e12f2)
 
+Bar chart of class imbalance in 'Response' column:
+![image](https://github.com/user-attachments/assets/4af91947-8ae9-4ef3-a0f2-6b7a129c4261)
 
 ### How it Works
 
