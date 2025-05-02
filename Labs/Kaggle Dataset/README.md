@@ -4,6 +4,8 @@
 # Marketing Campaign Data Set - Binary Classification
 ## Objective was to create a binary classification *response model which can provide a significant boost to the efficiency of a marketing campaign by increasing responses or reducing expenses.*
 
+### Project Link: https://www.kaggle.com/datasets/rodsaldanha/arketing-campaign?resource=download
+
 ### Initial Overview:
 
 - *AcceptedCmp1 - 1 if customer accepted the offer in the 1st campaign, 0 otherwise*
