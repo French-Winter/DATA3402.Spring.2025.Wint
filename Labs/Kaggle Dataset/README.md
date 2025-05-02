@@ -49,7 +49,13 @@ Where 'xyz' will be the name of the packaged you mean to install.
 ### Data Exploration
 
 Once you've downloaded the data set from Kaggle, uploaded it to Jupyter Notebook, and downloaded the required packages for the code, explore. 
-Upon first looks, the data set is 2240 rows (entries) by 29 columns (features) with only missing values in the 'Income' column. All columns are numeric except 'Education' and 'Marital_Status' which are categorical, also 'Dt_Customer' which should be data-time. Also, 'Z_CostContact' and 'Z_Revenue' are constants. There are many outlier values in the data set but the only notable outliers are in the 'Year_Birth' column.
+
+Upon first looks, the data set is 2240 rows (entries) by 29 columns (features) with only missing values in the 'Income' column. 
+
+All columns are numeric except 'Education' and 'Marital_Status' which are categorical, also 'Dt_Customer' which should be data-time. Also, 'Z_CostContact' and 'Z_Revenue' are constants. 
+
+There are many outlier values in the data set but the only notable outliers are in the 'Year_Birth' column.
+
 The target column, 'Response', is already encoded 'True' and 'False' to '1' and '0'. However, the target has an imbalance of 0's and 1's. The class imbalance is visualized below.
 
 ### Basic Data Visuals
@@ -80,10 +86,46 @@ The data set is cleaned and preprocessed before the model could be trained.
 - After data was split into training and testing subsets, Synthetic Minority Oversampling Technique (SMOTE) was applied to correct the class imbalance in the target column.
 - Logistic Regression, Random Forest, SVM, and KNN were the selected models. Accuracy, Precision, Recall, F1-Score, were the selected metrics. 
 - After running the models, the metrics returned that the Random Forest model showed the best performance on all metrics.
+
+  
+**=== Model Comparison ===
+
+Logistic Regression
+Accuracy:  0.8065
+Precision: 0.4148
+Recall:    0.7300
+F1-Score:  0.5290
+
+Random Forest
+Accuracy:  0.8839
+Precision: 0.6618
+Recall:    0.4500
+F1-Score:  0.5357
+
+SVM
+Accuracy:  0.8318
+Precision: 0.4532
+Recall:    0.6300
+F1-Score:  0.5272
+
+KNN
+Accuracy:  0.7872
+Precision: 0.3799
+Recall:    0.6800
+F1-Score:  0.4875**
+
+
 - The ROC Curve of the Random Forest Model returned an AUC of 0.87, which is less than before the data set handling but since all other metrics improved, we will accept this.
 
 ![image](https://github.com/user-attachments/assets/2d221298-a027-4e17-a9ae-fef0a6ce46f3)
 
+### Conclusion
+
+The data set presented few problems in terms of data cleaning. However, there was much work to be done in dealing with multicollinearity issues and target class imbalance. 
+
+Overall, the 'AcceptedCmp{num}', 'NumCatalogPurchases', and 'SpendToIncomeRatio' features had the highest relation to the 'Response' column and therefore were the most helpful in the binary classification. 
+
+Correcting the class imbalance also allowed the model to be more familiar with the preferred outcome of the target column.
 
 ### Future Goals
 
