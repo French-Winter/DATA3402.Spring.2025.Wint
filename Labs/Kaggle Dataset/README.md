@@ -6,7 +6,12 @@
 
 ### Project Link: https://www.kaggle.com/datasets/rodsaldanha/arketing-campaign?resource=download
 
-### Initial Overview:
+
+### Overview
+
+The goal of this project is to develop a model for binary classification of responses to a marketing campaign. Although we were not informed the type of marketing campaign or the expected projections of the campaign, we were given a relatively small sample of customer data to be used. The data set had to undergo minimal cleaning, but rigorous preprocessing by way of feature engineering, feature selection, and encoding of categorical variables. There was also a major concern of class imbalance in the target column, which was corrected. The data set was then split into training an dtesting sets and was applied to four models: Logistic Regression, Random Forest, Support Vector Machine (SVM), and K-Nearest Neighbours (KNN). Of these models, Random Forest performed best and this was used to progress the model and plot the ROC curve.
+
+### Initial Components:
 
 - *AcceptedCmp1 - 1 if customer accepted the offer in the 1st campaign, 0 otherwise*
 - *AcceptedCmp2 - 1 if customer accepted the offer in the 2nd campaign, 0 otherwise*
